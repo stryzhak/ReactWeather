@@ -24918,11 +24918,14 @@
 	    null,
 	    React.createElement(Nav, null),
 	    React.createElement(
-	      'h2',
-	      null,
-	      'Main component'
-	    ),
-	    props.children
+	      'div',
+	      { className: 'row' },
+	      React.createElement(
+	        'div',
+	        { className: 'columns medium-6 large-4 small-centered' },
+	        props.children
+	      )
+	    )
 	  );
 	};
 
@@ -25062,7 +25065,7 @@
 	      if (isLoading) {
 	        return React.createElement(
 	          'h3',
-	          null,
+	          { className: 'text-center' },
 	          'Fetching weather...'
 	        );
 	      } else if (temp && location) {
@@ -25073,9 +25076,9 @@
 	      'div',
 	      null,
 	      React.createElement(
-	        'h3',
-	        null,
-	        'Weather component'
+	        'h1',
+	        { className: 'text-center' },
+	        'Get Weather'
 	      ),
 	      React.createElement(WeatherForm, { onSearch: this.handleSearch }),
 	      renderMessage()
@@ -25116,7 +25119,7 @@
 	        React.createElement('input', { type: 'text', ref: 'location' }),
 	        React.createElement(
 	          'button',
-	          null,
+	          { className: 'button expanded hollow' },
 	          'Get Weather'
 	        )
 	      )
@@ -25130,7 +25133,7 @@
 /* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var React = __webpack_require__(8);
 
@@ -25139,11 +25142,11 @@
 	      location = _ref.location;
 
 	  return React.createElement(
-	    'h3',
-	    null,
-	    'It\'s it ',
+	    "h3",
+	    { className: "text-center" },
+	    "It's it ",
 	    temp,
-	    ' in ',
+	    " in ",
 	    location
 	  );
 	};
@@ -26726,20 +26729,54 @@
 /* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var React = __webpack_require__(8);
 
 	var About = function About(props) {
-	    return React.createElement(
-	        'div',
+	  return React.createElement(
+	    "div",
+	    null,
+	    React.createElement(
+	      "h1",
+	      { className: "text-center" },
+	      "About component!"
+	    ),
+	    React.createElement(
+	      "p",
+	      null,
+	      "This is a weather Application build in React"
+	    ),
+	    React.createElement(
+	      "p",
+	      null,
+	      "Here are some of the tools I used:"
+	    ),
+	    React.createElement(
+	      "ul",
+	      null,
+	      React.createElement(
+	        "li",
 	        null,
 	        React.createElement(
-	            'h3',
-	            null,
-	            'About component!'
-	        )
-	    );
+	          "a",
+	          { href: "https://facebook.github.io/react" },
+	          "React"
+	        ),
+	        " - This was the Javascript framework used."
+	      ),
+	      React.createElement(
+	        "li",
+	        null,
+	        React.createElement(
+	          "a",
+	          { href: "http://openweathermap.org" },
+	          "Open Weather Map"
+	        ),
+	        " - I used Open Weather Map to search for weather data by city name"
+	      )
+	    )
+	  );
 	};
 	module.exports = About;
 
@@ -26751,11 +26788,45 @@
 
 	var React = __webpack_require__(8);
 
+	var _require = __webpack_require__(166),
+	    Link = _require.Link;
+
 	var Examples = function Examples(props) {
 	  return React.createElement(
-	    'h3',
+	    'div',
 	    null,
-	    'Examples'
+	    React.createElement(
+	      'h1',
+	      { className: 'text-center' },
+	      'Examples'
+	    ),
+	    React.createElement(
+	      'p',
+	      null,
+	      'Here are a few example locations to try out'
+	    ),
+	    React.createElement(
+	      'ol',
+	      null,
+	      React.createElement(
+	        'li',
+	        null,
+	        React.createElement(
+	          Link,
+	          { to: '/?location=Kiev' },
+	          'Kiev'
+	        )
+	      ),
+	      React.createElement(
+	        'li',
+	        null,
+	        React.createElement(
+	          Link,
+	          { to: '/?location=Rio' },
+	          'Rio, Brazil'
+	        )
+	      )
+	    )
 	  );
 	};
 	module.exports = Examples;
